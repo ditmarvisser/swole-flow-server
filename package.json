@@ -1,0 +1,19 @@
+{
+  "name": "swole-flow-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "swole-flow-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditmarvisser/swole-flow-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ditmarvisser/swole-flow-server/issues"
+  },
+  "homepage": "https://github.com/ditmarvisser/swole-flow-server#readme"
+}
