@@ -1,12 +1,13 @@
 import { initializeDb } from './db/database';
 import { HttpError } from '../src/http/HttpError';
 import express, { Application, Request, Response, NextFunction } from 'express';
+import { config } from './config/app';
+
 // import { Error } from 'sequelize/types';
 
 /***
  * Library instances
  */
-// let express = require('express');
 
 /***
  * Application includes
@@ -16,8 +17,6 @@ let routes = require('./http/routes/index');
 /***
  * Database
  */
-
-// Init database
 const sequelize = initializeDb();
 
 /***
@@ -43,9 +42,9 @@ server.use((request: Request, response: Response, next: NextFunction) => {
 });
 
 // Handle errors
-server.use((error: any, request: Request, response: Response, next: NextFunction) => {
+server.use((error: any, request: any, response: any, next: any) => {
     console.log(error.stack);
-
+    console.log('dfdkf');
     response.locals.message = error.message;
     // response.locals.error = request.app.get('env') === 'development' ? error : {};
 
@@ -58,4 +57,12 @@ server.use((error: any, request: Request, response: Response, next: NextFunction
     });
 });
 
+if (!module.parent) {
+    server.listen(config.port, function () {
+        console.log(`app is listening at http://localhost:${config.port}`);
+    });
+
+    // // Listener for socket.io
+    // http.listen(config.socketPort, '0.0.0.0');
+}
 export default server;
